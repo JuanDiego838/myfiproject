@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class SaleController {
 
     @GetMapping
-
     public String getSale(){
         return "sale" ;
     }

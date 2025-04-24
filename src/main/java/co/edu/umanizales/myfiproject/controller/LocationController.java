@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -18,45 +17,45 @@ public class LocationController {
 
 
     @Autowired
-    private LocationService locationService;
+    private LocationService LocationService;
 
     @GetMapping
     public List<Location> getLocations() {
-        return locationService.getLocations();
+        return LocationService.getLocations();
     }
     @GetMapping(path = "/{code}")
     public Location getLocation(@PathVariable String code) {
-        return locationService.getLocationsByCode(code);
+        return LocationService.getLocationsByCode(code);
     }
 
     @GetMapping(path = "/states")
     public List<Location> getLocationsByStates(){
-        return locationService.getStates();
+        return LocationService.getStates();
     }
 
     @GetMapping("/capitals")
     public List<Location> getCapitals() {
-        return locationService.getCapitals();
+        return LocationService.getCapitals();
     }
 
     @GetMapping("/letters/{letters}")
     public List<Location> getLocationsByInitialLetters(@PathVariable String letters) {
-        return locationService.getLocationsByInitialLetters(letters);
+        return LocationService.getLocationsByInitialLetters(letters);
     }
 
     @GetMapping("/name/{name}")
     public Location getLocationByName(@PathVariable String name) {
-        return locationService.getLocationByName(name);
+        return LocationService.getLocationByName(name);
     }
 
     @GetMapping("/states/{code}")
     public Location getStateByCode(@PathVariable String code) {
-        return locationService.getStateByCode(code);
+        return LocationService.getStateByCode(code);
     }
 
     @GetMapping("/locations/state/{stateCode}")
     public List<Location> getLocationsByStateCode(@PathVariable String stateCode) {
-        return locationService.getLocationsByStateCode(stateCode);
+        return LocationService.getLocationsByStateCode(stateCode);
     }
 
 

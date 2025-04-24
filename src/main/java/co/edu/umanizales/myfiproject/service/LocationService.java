@@ -1,17 +1,12 @@
 package co.edu.umanizales.myfiproject.service;
 
 import co.edu.umanizales.myfiproject.model.Location;
-import com.sun.source.tree.WhileLoopTree;
-import io.micrometer.common.util.StringUtils;
 import  com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 import jakarta.annotation.PostConstruct;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import jakarta.annotation.PostConstruct;
-
-
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -19,8 +14,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-
 
 @Service
 @Getter
@@ -28,7 +21,7 @@ import java.util.Objects;
 
 public class LocationService {
     private List<Location> locations;
-    @Value("DIVIPOLA-_C_digos_municipios_20250422.csv")
+    @Value("DIVIPOLA-_C_digos_municipios_20250423.csv")
     private String locationsFilename;
 
     @PostConstruct
@@ -62,8 +55,8 @@ public class LocationService {
                 locations.add(new Location(line[2],line[3]));
             }
         } catch (IOException e) {
-            e.printStackTrace();
-            throw e; //Lanza la excepcion para que pueda manejarse en la capa superior si es necesario
+           e.printStackTrace();
+            throw e;
 
 
         } catch (CsvValidationException e) {

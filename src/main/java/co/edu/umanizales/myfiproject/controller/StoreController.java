@@ -1,19 +1,27 @@
 package co.edu.umanizales.myfiproject.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import co.edu.umanizales.myfiproject.model.Store;
+import co.edu.umanizales.myfiproject.service.StoreService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 
 @RestController
-@RequestMapping(path = "/store" )
+@RequestMapping("/store")
+public class StoreController {
 
-    public class
+    @Autowired
+    private StoreService storeService;
 
-StoreController {
     @GetMapping
-    public String store() {
-        return "store";
+    public List<Store> getAllStores() {
+        return storeService.getAllStores();
+    }
+
+    @GetMapping("/{code}")
+    public Store getStoreCode(@PathVariable String code) {
+        return storeService.getStoreCode(code);
     }
 
 
